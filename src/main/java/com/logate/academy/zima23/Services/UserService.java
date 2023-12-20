@@ -1,5 +1,6 @@
 package com.logate.academy.zima23.Services;
 
+import com.logate.academy.zima23.DTO.UserDTO;
 import com.logate.academy.zima23.Repositories.UserRepository;
 import com.logate.academy.zima23.User;
 import jakarta.annotation.PostConstruct;
@@ -13,54 +14,34 @@ import org.springframework.stereotype.Controller;
 import org.springframework.stereotype.Repository;
 import org.springframework.stereotype.Service;
 
-@Component // | //@Service | //@Repository
+import java.util.List;
+import java.util.Map;
+import java.util.Objects;
+
+//@Component // | //@Service | //@Repository
 //@Controller
+@Service
 public class UserService {
 
     private static Logger LOGGER = LoggerFactory.getLogger(UserService.class);
 
-    //UserRepository userRepository;
+    @Autowired
+    private UserRepository userRepository;
 
-//   void listAllUser() {
-//        userRepository.listAllUser();
-//    }
-
-//    void listUserWithId(int id) {
-//        userRepository.listUserWithId(int id);
-//    }
-
-    //prvi nacin DI
-@Autowired
-private ProductService productService;
-
-@Autowired
-private User user;
-
-@Autowired
-// User user2;
-@Qualifier(value = "userMarko")
-private User user2;
-
-    //drugi nacin DI
-//private ProductService productService;
-
-//public void setProductService (ProductService productService) {
-//    this.productService = productService;
-//}
-
-    //treci nacin DI
-//public UserService(ProductService productService) {
-//    this.productService = productService;
-//}
-
-
-    @PostConstruct
-
-    @PreDestroy
-
-    public void printLogForUser() {
-        LOGGER.info("U user objektu je: {}", user);
-        LOGGER.info("U user2 objekty je: {}", user2);
+    public List<UserDTO> getAll() {
+       return userRepository.getAll();
     }
 
+    public UserDTO getById(Integer id) {
+       return userRepository.getById(id);
+    }
+
+    public List<UserDTO> getByAge(Integer age) {
+        return userRepository.getByAge(age);
+    }
+
+//    public List<UserDTO> getByParams(Map<String, Objects> queryParams) {
+//        //userRepository.getByParams(queryParams);
+//
+//    }
 }

@@ -1,0 +1,5 @@
+twitter-api:
+  base-url: "https://www.twitter.com/api/twitter"
+  auth-token: "sdsdafsa@!"
+  port: 8080
+  user-name: "mmarkovic"

@@ -1,0 +1,6 @@
+
+twitter-api:
+  base-url: "https://www.dev.twitter.com/api/twitter"
+  auth-token: "jsibq1@!"
+  port: 4444
+  user-name: "sradenovic"
